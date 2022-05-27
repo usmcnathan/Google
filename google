@@ -1,0 +1,138 @@
+// Google-IO.cpp : 
+//
+
+#include <iostream>
+#include <fstream>// file types - in -out -trunc - app - at e - binary
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+void GiveMeCred() {
+    fstream f; // object (class that makes methods and data available
+    string us;//name
+    string phn;//phone number
+    string mdn;//maiden name
+    string ad;//1st childs first name
+    string pet;//pets name
+    string fc; //first car
+    string ba; //bank
+    string ss;//social security
+    char usr_in;//kick start prog ...
+    cout << "Welcome to the best friends game... "
+        "Answer these questions and win a trip to another dimension!!"
+        "ALL EXPENSES PAID!!" << endl;
+    cout << "Never RESET the game!! This is a test!!!" << endl;
+    cout << "Which mode? (r) for reset, (w) for write " << flush;//comes before answer - gain info by lying to the user lolololololol
+    cin >> usr_in;
+    if (usr_in == 'w') {
+        f.open("m.text", ios::out);// open file mtext and read from that file 
+        string r;//buffer string
+        while (getline(f, r)) {//gets info from f stream and preps buffer strings
+            cout << r << endl;// reads buffer string to screen
+        }
+        f.close();
+    }
+    if (usr_in == 'r') {
+        f.open("m.text", ios::in); // open file and write to mtext for storage and access
+        string w;
+        while (getline(f, w)) {// writes to f string 
+            cout << w << endl;//reads what was written
+
+        }
+        f.close();
+    }
+    else {
+        f.open("m.text", ios::out | ios::in | ios::app);
+        cout << "Hello this is know it all, my information hub(big brother)"
+            " designed for sheep i mean anyone. Anyways, what is your name?" << endl;
+        cin >> us;//get name
+        cout << "Hello " << us << endl;
+        f << us << "\n";//write name
+
+        cout << us << " what is your phone number?" << endl;
+        cin >> phn;//get phone
+        cout << "Hello " << us << ", your phone number is " << phn << endl;
+        f << phn << "\n";//write phone number
+        cout << "Thank you for that " << us << "."
+            " Getting to know you is fun!"
+            " Whats your mothers last name before she was married?"
+            " Please enter that name here for a bonus!" << endl;
+        cin >> mdn;//get maiden
+        f << mdn << "\n";//write maiden name
+        cout << " We are quickly becoming best friends " << us << "!"
+            " I almost forgot, there are a few more things I need for you and I to be"
+            " fully connected and the bonus trip to Mexico will be all yours!!!" << endl;
+
+        cout << " I always knew I loved you " << us << "."
+            " Let's get this ball rolling..." << endl;
+        cout << " These are quickfire questions for you to answer " << us << "." << endl;
+        cout << " Be accurate and anywhere else is going to be your DESTINATION!!"
+            " ALL EXPENSES PAID" << endl;
+        cout << " What is your 1st childs 1st name?" << endl;
+        cin >> ad;
+        f << ad << "\n";//write childs name
+        cout << "Thank you " << us << "." << endl;
+
+        cout << " What is your pets name?" << endl;
+        cin >> pet;
+        f << pet << "\n";
+        cout << "Thank you " << us << "." << endl;
+
+        cout << " What is the make of your first car?" << endl;
+        cin >> fc;
+        f << fc << "\n";
+        cout << "Thank you " << us << " we are getting there fast." << endl;
+
+        cout << " What is the acronym of your bank?" << endl;
+        cin >> ba;
+        cout << "Thank you " << us << " almost done." << endl;
+        f << ba << "\n";
+
+        cout << " Last question " << us << ", this last question is to secure your ticket to Nowhere!" << endl;
+        cout << " What is your SSN?" << endl;
+        cin >> ss;
+        cout << "Thank you " << us << "." << endl;
+        f << ss << "\n";
+        cout << "Are you ready for your ticket confirmation?  Enter y for yes" << endl;
+        char gotem;
+        cin >> gotem;
+        if (gotem == 'y') {
+            system("pause");
+            cout << "You got played !!" << endl;
+            cout << "by a scammer " << us << "!!!" << endl;
+            f.close();
+        }
+
+        else {
+            cout << " You are a waste of my time " << us << "!"
+                " you have some form of training!!!"
+                " Remember that I have your phone number " << phn << ", your mothers maiden name " << mdn <<
+                ", " << ba << "your bank info, " << fc << " first car, " << ss <<
+                " and your ssn!!!" << endl;
+            cout << "I can use that info to breaks into your accounts and gets your monies$$!!!" << endl;
+            cout << "Wait what if you just scammed meoh shit" << endl;
+            f.close();
+        }
+    }
+}
+
+int main()
+{
+    while (true) { //do this until
+        GiveMeCred();
+        cout << " Are you done? (n) for no." << endl;
+        char quit;
+        cin >> quit;
+        if (quit == 'n') {// run program 
+            GiveMeCred();
+            break;
+        }
+        else {//close program
+            cout << "this was boring" << endl;
+            return 0;
+        }
+
+    }
+
+}
